@@ -2,18 +2,24 @@
 
 import { Card } from '@/components/ui/card'
 import { BookOpen, Users, FileText, Calendar } from 'lucide-react'
+import { useQuery } from 'react-query'
+import { courseApi } from '@/lib/api/courses'
+import { studentCourseApi } from '@/lib/api/student_courses'
 
 export function FacultyDashboard() {
+  const { data: myCourses = [] } = useQuery('facultyCourses', courseApi.getFacultyCourses)
+  const { data: registeredStudents = [] } = useQuery('registeredStudents', studentCourseApi.getRegisteredStudents)
+
   const stats = [
     {
       name: 'My Subjects',
-      value: 3,
+      value: myCourses.length,
       icon: BookOpen,
       color: 'bg-primary-500',
     },
     {
       name: 'Students',
-      value: 45,
+      value: registeredStudents.length,
       icon: Users,
       color: 'bg-secondary-500',
     },

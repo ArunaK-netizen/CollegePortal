@@ -2,18 +2,24 @@
 
 import { Card } from '@/components/ui/card'
 import { BookOpen, Calendar, FileText, TrendingUp } from 'lucide-react'
+import { useQuery } from 'react-query'
+import { courseApi } from '@/lib/api/courses'
+import { attendanceApi } from '@/lib/api/attendance'
 
 export function StudentDashboard() {
+  const { data: courses = [] } = useQuery('myCourses', courseApi.getMyCourses)
+  const { data: attendance = [] } = useQuery('myAttendance', attendanceApi.getMyAttendance)
+
   const stats = [
     {
       name: 'Enrolled Subjects',
-      value: 6,
+      value: courses.length,
       icon: BookOpen,
       color: 'bg-primary-500',
     },
     {
       name: 'Attendance',
-      value: '85%',
+      value: `${(attendance.filter(a => a.status === 'present').length / attendance.length) * 100}%`,
       icon: TrendingUp,
       color: 'bg-success-500',
     },

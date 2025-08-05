@@ -1,5 +1,8 @@
 {
-  "/not-found": "app/not-found.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js"
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
+  "/(dashboard)/study-materials/page": "app/(dashboard)/study-materials/page.js",
+  "/(dashboard)/courses/page": "app/(dashboard)/courses/page.js",
+  "/(dashboard)/attendance/page": "app/(dashboard)/attendance/page.js",
+  "/(dashboard)/announcements/page": "app/(dashboard)/announcements/page.js"
 }

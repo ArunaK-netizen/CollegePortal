@@ -20,4 +20,14 @@ export const courseApi = {
     const response = await apiClient.delete(`/courses/${id}`)
     return response.data
   },
+
+  getMyCourses: async () => {
+    const response = await apiClient.get('/student-courses/me')
+    return response.data
+  },
+
+  getFacultyCourses: async () => {
+    const response = await apiClient.get('/courses/faculty/me')
+    return response.data
+  },
 }
